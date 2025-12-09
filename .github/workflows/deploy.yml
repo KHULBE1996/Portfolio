@@ -1,0 +1,37 @@
+name: Deploy Angular to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        run: npm run build -- --configuration production
+    
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+        with:
+          server: "ftp.rkhulbe.live"
+          username: "u457842920.portfolioFTP"
+          password: "portfolio@FTP1"
+          port: "21"
+          local-dir: "dist/frontend/"
+          server-dir: "/"
+
