@@ -1,0 +1,23 @@
+<section id="Skills" #sectionEl class="section">
+  <div class="section-header" #revealEl>
+    <p class="eyebrow">Skills</p>
+    <h2>Depth in engineering, polish in design.</h2>
+    <p class="muted">From systems thinking to interaction craft.</p>
+  </div>
+  <div class="card-grid skills">
+    <article
+      class="card skill-card"
+      *ngFor="let group of skills"
+      #revealEl
+    >
+      <div class="card-heading">
+        <div class="dot"></div>
+        <h3>{{ group.category }}</h3>
+      </div>
+      <ul>
+        <li *ngFor="let item of group.items">{{ item }}</li>
+      </ul>
+    </article>
+  </div>
+</section>
+

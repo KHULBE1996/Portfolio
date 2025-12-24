@@ -1,0 +1,48 @@
+.timeline {
+  display: grid;
+  gap: 2.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--muted-blue));
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--bg);
+  margin-top: 0.25rem;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeline ul {
+  padding-left: 1.1rem;
+  margin: 0.5rem 0 0;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted);
+}
+

@@ -1,0 +1,19 @@
+<section id="Services" #sectionEl class="section">
+  <div class="section-header" #revealEl>
+    <p class="eyebrow">Services</p>
+    <h2>Ways I can help your team.</h2>
+    <p class="muted">Design-to-code, systems, and motion.</p>
+  </div>
+  <div class="card-grid services">
+    <article
+      class="card service-card"
+      *ngFor="let service of services"
+      #revealEl
+    >
+      <div class="icon-circle"></div>
+      <h3>{{ service.title }}</h3>
+      <p class="muted">{{ service.description }}</p>
+    </article>
+  </div>
+</section>
+

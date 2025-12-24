@@ -1,0 +1,34 @@
+<section id="Home" #sectionEl class="section hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p #heroLine class="eyebrow">{{ subtitle }}</p>
+      <h1 #heroLine class="headline">{{ title }}</h1>
+      <p #heroLine class="lede">{{ body }}</p>
+      <div #heroLine class="hero-actions">
+        <button type="button" class="btn primary" (click)="scrollTo('Projects')" [attr.aria-label]="'Scroll to Projects section'">
+          View Projects
+        </button>
+        <button type="button" class="btn ghost" (click)="scrollTo('Contact')" [attr.aria-label]="'Scroll to Contact section'">
+          Contact Me
+        </button>
+      </div>
+      <div #heroLine class="meta">
+        <span class="pill">5+ Years Experience</span>
+        <span class="pill soft">Open to opportunities</span>
+      </div>
+    </div>
+    <div #heroLine class="hero-visual">
+      <div class="glass">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="portrait">Rajeev Khulbe</div>
+      </div>
+      <div class="floating-card">
+        <p>Currently working at</p>
+        <h3>Altisource Business Solutions</h3>
+        <p class="muted">Angular · TypeScript · UI/UX</p>
+      </div>
+    </div>
+  </div>
+</section>
+
