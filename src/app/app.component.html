@@ -1,195 +1,29 @@
 <div class="page">
-  <header class="navbar">
-    <div class="brand">RK</div>
-    <nav class="nav-links" aria-label="Primary navigation">
-      <button
-        *ngFor="let link of navLinks"
-        type="button"
-        (click)="scrollTo(link)"
-        [class.active]="activeSection === link"
-      >
-        {{ link }}
-      </button>
-    </nav>
-  </header>
+  <app-header
+    [navLinks]="navLinks"
+    [activeSection]="activeSection"
+    (scrollToSection)="scrollTo($event)"
+  ></app-header>
 
   <main>
-    <section id="Home" #sectionEl class="section hero">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <p #heroLine class="eyebrow">{{ heroSubtitle }}</p>
-          <h1 #heroLine class="headline">{{ heroTitle }}</h1>
-          <p #heroLine class="lede">{{ heroBody }}</p>
-          <div #heroLine class="hero-actions">
-            <button type="button" class="btn primary" (click)="scrollTo('Projects')">
-              View Projects
-            </button>
-            <button type="button" class="btn ghost" (click)="scrollTo('Contact')">
-              Contact Me
-            </button>
-          </div>
-          <div #heroLine class="meta">
-            <span class="pill">Available for freelance</span>
-            <span class="pill soft">Remote-friendly</span>
-          </div>
-        </div>
-        <div #heroLine class="hero-visual">
-          <div class="glass">
-            <div class="glow glow-one"></div>
-            <div class="glow glow-two"></div>
-            <div class="portrait">Your Portrait / Lottie Here</div>
-          </div>
-          <div class="floating-card">
-            <p>Currently crafting</p>
-            <h3>Motion-rich experiences</h3>
-            <p class="muted">Angular · GSAP · Systems</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <app-hero
+      [subtitle]="heroSubtitle"
+      [title]="heroTitle"
+      [body]="heroBody"
+      (scrollToSection)="scrollTo($event)"
+      #sectionEl
+    ></app-hero>
 
-    <section id="Skills" #sectionEl class="section">
-      <div class="section-header" #revealEl>
-        <p class="eyebrow">Skills</p>
-        <h2>Depth in engineering, polish in design.</h2>
-        <p class="muted">From systems thinking to interaction craft.</p>
-      </div>
-      <div class="card-grid skills">
-        <article
-          class="card skill-card"
-          *ngFor="let group of skills"
-          #revealEl
-        >
-          <div class="card-heading">
-            <div class="dot"></div>
-            <h3>{{ group.category }}</h3>
-          </div>
-          <ul>
-            <li *ngFor="let item of group.items">{{ item }}</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+    <app-skills [skills]="skills" #sectionEl></app-skills>
 
-    <section id="Experience" #sectionEl class="section alt">
-      <div class="section-header" #revealEl>
-        <p class="eyebrow">Experience</p>
-        <h2>Impactful roles and outcomes.</h2>
-        <p class="muted">Shipping premium web experiences end-to-end.</p>
-      </div>
-      <div class="timeline">
-        <article
-          class="timeline-item"
-          *ngFor="let exp of experiences"
-          #revealEl
-        >
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="eyebrow muted">{{ exp.period }}</div>
-            <h3>{{ exp.role }} — {{ exp.company }}</h3>
-            <p class="muted">{{ exp.summary }}</p>
-            <ul>
-              <li *ngFor="let point of exp.highlights">{{ point }}</li>
-            </ul>
-          </div>
-        </article>
-    </div>
-    </section>
+    <app-experience [experiences]="experiences" #sectionEl></app-experience>
 
-    <section id="Services" #sectionEl class="section">
-      <div class="section-header" #revealEl>
-        <p class="eyebrow">Services</p>
-        <h2>Ways I can help your team.</h2>
-        <p class="muted">Design-to-code, systems, and motion.</p>
-      </div>
-      <div class="card-grid services">
-        <article
-          class="card service-card"
-          *ngFor="let service of services"
-          #revealEl
-        >
-          <div class="icon-circle"></div>
-          <h3>{{ service.title }}</h3>
-          <p class="muted">{{ service.description }}</p>
-        </article>
-      </div>
-    </section>
+    <app-services [services]="services" #sectionEl></app-services>
 
-    <section id="Projects" #sectionEl class="section alt">
-      <div class="section-header" #revealEl>
-        <p class="eyebrow">Projects</p>
-        <h2>Selected work.</h2>
-        <p class="muted">Crafted for clarity, performance, and delight.</p>
-      </div>
-      <div class="card-grid projects">
-        <article
-          class="card project-card"
-          *ngFor="let project of projects"
-          #revealEl
-        >
-          <div class="project-meta">
-            <p class="muted">Case Study</p>
-            <h3>{{ project.title }}</h3>
-          </div>
-          <p class="muted">{{ project.description }}</p>
-          <div class="tags">
-            <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
-          </div>
-          <div class="project-actions">
-            <a
-              *ngIf="project.link"
-              [href]="project.link"
-              class="text-link"
-          target="_blank"
-              rel="noreferrer"
-              >View</a
-            >
-            <span *ngIf="!project.link" class="text-link disabled">Coming Soon</span>
-          </div>
-        </article>
-      </div>
-    </section>
+    <app-projects [projects]="projects" #sectionEl></app-projects>
 
-    <section id="Contact" #sectionEl class="section contact">
-      <div class="contact-grid">
-        <div class="section-header" #revealEl>
-          <p class="eyebrow">Contact</p>
-          <h2>Let’s build something elegant.</h2>
-          <p class="muted">
-            Tell me about your product, timeline, and goals. I’ll respond within one business day.
-          </p>
-          <div class="socials">
-            <a *ngFor="let social of socials" [href]="social.href" target="_blank" rel="noreferrer">
-              {{ social.label }}
-            </a>
-    </div>
-  </div>
-        <form class="contact-form" #revealEl>
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" />
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              placeholder="Project details, scope, and timing."
-            ></textarea>
-          </div>
-          <button type="button" class="btn primary full">Send Message</button>
-        </form>
-      </div>
-    </section>
-</main>
+    <app-contact [socials]="socials" #sectionEl></app-contact>
+  </main>
 
-  <footer class="footer">
-    <p class="muted">© {{ currentYear }} RK — Crafted with care.</p>
-  </footer>
+  <app-footer [currentYear]="currentYear"></app-footer>
 </div>
-

@@ -12,59 +12,6 @@
   isolation: isolate;
 }
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  backdrop-filter: blur(12px);
-  background: color-mix(in srgb, var(--bg) 75%, transparent);
-  border-bottom: 1px solid var(--border);
-}
-
-.brand {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  letter-spacing: 0.08em;
-  color: var(--text);
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-
-  button {
-    background: transparent;
-    border: none;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 0.75rem;
-    padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.2s ease;
-    cursor: pointer;
-
-    &.active,
-    &:hover {
-      color: var(--text);
-    }
-
-    &.active::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -0.25rem;
-      height: 2px;
-      background: var(--gold);
-      border-radius: 999px;
-    }
-  }
-}
 
 main {
   display: flex;
@@ -403,6 +350,33 @@ h3 {
     &:hover {
       border-color: var(--gold);
       transform: translateY(-2px);
+    }
+  }
+}
+
+.contact-info {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+
+    strong {
+      color: var(--text);
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 }

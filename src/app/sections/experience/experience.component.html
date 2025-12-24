@@ -1,0 +1,25 @@
+<section id="Experience" #sectionEl class="section alt">
+  <div class="section-header" #revealEl>
+    <p class="eyebrow">Experience</p>
+    <h2>Impactful roles and outcomes.</h2>
+    <p class="muted">Shipping premium web experiences end-to-end.</p>
+  </div>
+  <div class="timeline">
+    <article
+      class="timeline-item"
+      *ngFor="let exp of experiences"
+      #revealEl
+    >
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="eyebrow muted">{{ exp.period }}</div>
+        <h3>{{ exp.role }} — {{ exp.company }}</h3>
+        <p class="muted">{{ exp.summary }}</p>
+        <ul>
+          <li *ngFor="let point of exp.highlights">{{ point }}</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+

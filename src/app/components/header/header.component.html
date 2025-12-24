@@ -1,0 +1,15 @@
+<header class="navbar">
+  <div class="brand">RK</div>
+  <nav class="nav-links" aria-label="Primary navigation">
+    <button
+      *ngFor="let link of navLinks"
+      type="button"
+      (click)="scrollTo(link, $event)"
+      [class.active]="activeSection === link"
+      [attr.aria-label]="'Scroll to ' + link + ' section'"
+    >
+      {{ link }}
+    </button>
+  </nav>
+</header>
+

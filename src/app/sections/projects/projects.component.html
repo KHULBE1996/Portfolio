@@ -1,0 +1,35 @@
+<section id="Projects" #sectionEl class="section alt">
+  <div class="section-header" #revealEl>
+    <p class="eyebrow">Projects</p>
+    <h2>Selected work.</h2>
+    <p class="muted">Crafted for clarity, performance, and delight.</p>
+  </div>
+  <div class="card-grid projects">
+    <article
+      class="card project-card"
+      *ngFor="let project of projects"
+      #revealEl
+    >
+      <div class="project-meta">
+        <p class="muted">Case Study</p>
+        <h3>{{ project.title }}</h3>
+      </div>
+      <p class="muted">{{ project.description }}</p>
+      <div class="tags">
+        <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+      </div>
+      <div class="project-actions">
+        <a
+          *ngIf="project.link"
+          [href]="project.link"
+          class="text-link"
+          target="_blank"
+          rel="noreferrer"
+          >View</a
+        >
+        <span *ngIf="!project.link" class="text-link disabled">Coming Soon</span>
+      </div>
+    </article>
+  </div>
+</section>
+

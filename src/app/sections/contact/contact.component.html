@@ -1,0 +1,41 @@
+<section id="Contact" #sectionEl class="section contact">
+  <div class="contact-grid">
+    <div class="section-header" #revealEl>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's build something elegant.</h2>
+      <p class="muted">
+        Let's discuss your project, timeline, and goals. I'll respond within one business day.
+      </p>
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:rkkhulbe1996&#64;gmail.com">rkkhulbe1996&#64;gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+917078924888">+91 7078924888</a></p>
+      </div>
+      <div class="socials">
+        <a *ngFor="let social of socials" [href]="social.href" target="_blank" rel="noreferrer">
+          {{ social.label }}
+        </a>
+      </div>
+    </div>
+    <form class="contact-form" #revealEl>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you&#64;example.com" />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Project details, scope, and timing."
+        ></textarea>
+      </div>
+      <button type="button" class="btn primary full">Send Message</button>
+    </form>
+  </div>
+</section>
+

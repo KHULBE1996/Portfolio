@@ -1,0 +1,119 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 80%, transparent), transparent);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.socials {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+
+  a {
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.75rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.contact-info {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+
+    strong {
+      color: var(--text);
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  label {
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    background: color-mix(in srgb, var(--surface) 90%, transparent);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    color: var(--text);
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: color-mix(in srgb, var(--gold) 45%, var(--border));
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.14);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  &.primary {
+    background: var(--gold);
+    color: #0f0f10;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.35);
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  }
+}
+
